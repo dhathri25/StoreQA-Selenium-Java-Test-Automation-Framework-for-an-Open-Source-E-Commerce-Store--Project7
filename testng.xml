@@ -1,0 +1,22 @@
+
+<suite name="StoreQA Suite" parallel="false">
+
+    <!-- Listener for Screenshot + Extent Report -->
+    <listeners>
+        <listener class-name="com.storeqa.listeners.TestListener"/>
+    </listeners>
+
+    <test name="All Tests">
+
+        <classes>
+            <class name="com.storeqa.tests.LoginTest"/>
+            <class name="com.storeqa.tests.RegisterTest"/>
+            <class name="com.storeqa.tests.ProductTest"/>
+            <class name="com.storeqa.tests.CartTest"/>
+            <class name="com.storeqa.tests.WishlistTest"/>
+            <class name="com.storeqa.tests.EndToEndTest"/>
+        </classes>
+
+    </test>
+
+</suite>

@@ -1,0 +1,200 @@
+# StoreQA Automation Framework – Design Document
+
+---
+
+## 1. Introduction
+
+This document describes the design and architecture of the StoreQA Selenium Automation Framework built using Java, TestNG, and Maven.
+
+The framework is designed to automate functional testing of an OpenCart-based e-commerce application.
+
+---
+
+## 2. Objectives
+
+* Automate critical user workflows
+* Ensure maintainability and scalability
+* Follow industry best practices (POM)
+* Provide detailed reporting and debugging support
+
+---
+
+## 3. Architecture Overview
+
+The framework follows the **Page Object Model (POM)** architecture.
+
+### Layers:
+
+1. Test Layer
+2. Page Layer
+3. Base Layer
+4. Utility Layer
+5. Configuration Layer
+
+---
+
+## 4. Component Design
+
+### 4.1 Base Layer
+
+#### BaseTest
+
+* Handles WebDriver initialization
+* Reads browser from config
+* Manages setup and teardown
+
+#### BasePage
+
+* Contains reusable methods:
+
+  * click()
+  * sendKeys()
+  * waitForVisibility()
+
+---
+
+### 4.2 Page Layer
+
+Each page is represented as a class:
+
+* LoginPage
+* RegisterPage
+* ProductPage
+* CartPage
+* WishlistPage
+
+Responsibilities:
+
+* Store locators
+* Provide reusable action methods
+
+---
+
+### 4.3 Test Layer
+
+Contains all test classes:
+
+* LoginTest
+* RegisterTest
+* ProductTest
+* CartTest
+* WishlistTest
+* EndToEndTest
+
+Responsibilities:
+
+* Call Page methods
+* Perform validations
+* No direct WebDriver usage
+
+---
+
+### 4.4 Utility Layer
+
+#### ConfigReader
+
+* Reads properties from config file
+
+#### EmailUtil
+
+* Generates dynamic email for registration
+
+#### ScreenshotUtil
+
+* Captures screenshots on failure
+
+#### ExtentManager
+
+* Manages ExtentReports instance
+
+#### TestContextHolder
+
+* Shares WebDriver with Listener
+
+---
+
+### 4.5 Listener Layer
+
+#### TestListener
+
+* Implements ITestListener
+* Captures screenshots on failure
+* Logs results in Extent Report
+
+---
+
+## 5. Wait Strategy
+
+* Explicit Wait using WebDriverWait
+* No Thread.sleep used (as per requirements)
+
+---
+
+## 6. Configuration Management
+
+All configurable values stored in:
+
+```
+config.properties
+```
+
+* browser
+* baseUrl
+* timeout
+
+---
+
+## 7. Reporting
+
+* ExtentReports used for HTML reporting
+* Includes:
+
+  * Test status
+  * Execution logs
+  * Screenshots on failure
+
+---
+
+## 8. Error Handling
+
+* Screenshot captured on failure
+* Logs printed for debugging
+* Explicit waits reduce flakiness
+
+---
+
+## 9. Test Execution Flow
+
+1. Initialize driver
+2. Launch application
+3. Execute test steps
+4. Capture results
+5. Generate report
+6. Close browser
+
+---
+
+## 10. Best Practices Followed
+
+* No hardcoded values
+* No duplicate code
+* Clean method naming
+* Modular design
+* Separation of concerns
+
+---
+
+## 11. Future Enhancements
+
+* Parallel execution
+* Data-driven testing (Excel/JSON)
+* CI/CD integration
+* Headless execution
+
+---
+
+## 12. Conclusion
+
+The StoreQA framework is a robust, scalable, and maintainable automation solution that aligns with industry standards and supports efficient test execution.
+
+---
