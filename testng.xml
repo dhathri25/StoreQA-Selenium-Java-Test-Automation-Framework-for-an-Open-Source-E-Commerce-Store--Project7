@@ -1,7 +1,6 @@
 
 <suite name="StoreQA Suite" parallel="false">
 
-    <!-- Listener for Screenshot + Extent Report -->
     <listeners>
         <listener class-name="com.storeqa.listeners.TestListener"/>
     </listeners>

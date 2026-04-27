@@ -1,3 +1,4 @@
+
 package com.storeqa.base;
 
 import com.storeqa.config.ConfigReader;

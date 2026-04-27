@@ -1,3 +1,4 @@
+
 package com.storeqa.pages;
 
 import com.storeqa.base.BasePage;

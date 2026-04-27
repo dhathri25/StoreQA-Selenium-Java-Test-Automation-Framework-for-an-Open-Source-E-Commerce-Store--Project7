@@ -1,3 +1,4 @@
+
 package com.storeqa.tests;
 
 import com.storeqa.base.BaseTest;

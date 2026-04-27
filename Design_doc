@@ -1,5 +1,6 @@
 # StoreQA Automation Framework – Design Document
 
+
 ---
 
 ## 1. Introduction
@@ -196,5 +197,6 @@ config.properties
 ## 12. Conclusion
 
 The StoreQA framework is a robust, scalable, and maintainable automation solution that aligns with industry standards and supports efficient test execution.
+
 
 ---
